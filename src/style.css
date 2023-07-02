@@ -14,19 +14,19 @@ body {
   color: var(--blanco);
   font-size: 2rem;
 }
-.titulo {
+.title {
   text-align: center;
   font-size: 3rem;
   margin-top:5rem;
 }
 
-.contenedor {
+.container {
   max-width: 100rem;
   width: 95%;
   margin: 0 auto;
 }
 @media (min-width: 768px) {
-  .buscador-clima {
+  .weather-search {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       align-items: center;
@@ -34,18 +34,18 @@ body {
       margin-top: 5rem;
   }
 }
-.formulario,
-.campo {
+.form,
+.field {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
-.formulario label {
+.form label {
   font-size: 2rem;
   font-weight: 700;
 }
-.formulario input[type="text"], 
-.formulario select {
+.form input[type="text"],
+.form select {
   padding: 1rem;
   background-color: transparent;
   border: .3rem solid var(--blanco);
@@ -54,7 +54,7 @@ body {
   font-weight: 400;
   font-size: 1.8rem;
 }
-.formulario input[type="submit"] {
+.form input[type="submit"] {
   background-color: var(--primary);
   border: none;
   color: var(--blanco);
@@ -65,12 +65,12 @@ body {
   padding: 1rem;
   margin-top: 2rem;
 }
-.campo ::placeholder { 
+.field ::placeholder {
   color: var(--blanco);
   opacity: 1; 
 }
 
-.resultado {
+.result {
   background-color: var(--blanco);
   padding: 1rem;
   border-radius: 1rem;
@@ -79,25 +79,25 @@ body {
   margin-top: 2rem;
 }
 
-.resultado .actual {
+.result .actual {
   font-size: 6rem;
   margin: 0;
   font-weight: 900;
 }
-.temperaturas {
+.temperatures {
   display: flex;
   gap: 2rem;
   justify-content: center;
 }
-.temperaturas p {
+.temperatures p {
   font-weight: 900;
 }
-.temperaturas span {
+.temperatures span {
   font-weight: 400;
 }
 
-.instrucciones,
-.no-resultados {
+.instructions,
+.no-results {
   text-align: center;
   color: var(--blanco);
   font-size: 2rem;
