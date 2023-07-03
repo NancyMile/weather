@@ -36,9 +36,13 @@ export default function useWeather() {
         return Object.values(weather.value).length > 0
     })
 
+    //temperaature minus the 273.15 kelving degrees
+    const formatTemperature = temperature => parseInt(temperature - 273.15)
+
     return {
         getWeather,
         weather,
-        displayWeather
+        displayWeather,
+        formatTemperature
     }
 }

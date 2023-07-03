@@ -15,6 +15,9 @@
       <Form
       @get-weather="getWeather"
       />
-      <Weather v-if="displayWeather"/>
+      <Weather
+        v-if="displayWeather"
+        :weather="weather"
+      />
     </div>
 </template>
