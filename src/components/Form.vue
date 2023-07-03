@@ -29,7 +29,7 @@
 
         error.value = ''
 
-        emit('get-weather')
+        emit('get-weather',search)
     }
 
 </script>

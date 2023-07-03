@@ -1,7 +1,7 @@
 export default function useWeather() { 
 
-    const getWeather = () => {
-        console.log('get weather')
+    const getWeather = ({ city, country}) => {
+        //console.log('get weather', city ,country)
     }
 
     return {
