@@ -4,12 +4,15 @@ import { ref,computed } from "vue"
 export default function useWeather() { 
 
     const weather = ref({})
+    const loading = ref(false)
 
     const getWeather = async({ city, country}) => {
         //console.log('get weather', city ,country)
 
         //import API key
         const key = import.meta.env.VITE_API_KEY
+        loading.value = true
+        weather.value = {}
 
         //get long  and lat
         try {
@@ -22,12 +25,15 @@ export default function useWeather() {
 
             //get weather
             const urlWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`
-            const { data:dataWeather } = await axios(urlWeather) // rename data as dataweather
+            const { data: dataWeather } = await axios(urlWeather) // rename data as dataweather
             //console.log(dataWeather)
             weather.value = dataWeather
 
         } catch (error) {
             console.log(error)
+        }
+        finally {
+            loading.value = false
         }
     }
 
@@ -43,6 +49,7 @@ export default function useWeather() {
         getWeather,
         weather,
         displayWeather,
-        formatTemperature
+        formatTemperature,
+        loading
     }
 }
