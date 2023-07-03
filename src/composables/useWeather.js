@@ -18,6 +18,9 @@ export default function useWeather() {
             //console.log('lon: '+ lon + ' lat: '+ lat)
 
             //get weather
+            const urlWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`
+            const { data:dataWeather } = await axios(urlWeather) // rename data as dataweather
+            console.log(dataWeather)
 
         } catch (error) {
             console.log(error)
