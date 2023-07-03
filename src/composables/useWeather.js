@@ -1,6 +1,9 @@
 import axios from "axios"
+import { ref,computed } from "vue"
 
 export default function useWeather() { 
+
+    const weather = ref({})
 
     const getWeather = async({ city, country}) => {
         //console.log('get weather', city ,country)
@@ -20,14 +23,22 @@ export default function useWeather() {
             //get weather
             const urlWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`
             const { data:dataWeather } = await axios(urlWeather) // rename data as dataweather
-            console.log(dataWeather)
+            //console.log(dataWeather)
+            weather.value = dataWeather
 
         } catch (error) {
             console.log(error)
         }
     }
 
+    const displayWeather = computed(() => {
+        //ckecks if weather has data
+        return Object.values(weather.value).length > 0
+    })
+
     return {
-        getWeather
+        getWeather,
+        weather,
+        displayWeather
     }
 }

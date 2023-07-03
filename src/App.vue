@@ -1,8 +1,9 @@
 <script setup>
   import Form from './components/Form.vue'
+  import Weather from './components/Weather.vue'
   import useWeather from './composables/useWeather';
 
-  const { getWeather } = useWeather()
+  const { getWeather, weather, displayWeather } = useWeather()
 
   //console.log(import.meta.env)
 
@@ -14,5 +15,6 @@
       <Form
       @get-weather="getWeather"
       />
+      <Weather v-if="displayWeather"/>
     </div>
 </template>
