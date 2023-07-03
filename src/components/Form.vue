@@ -9,6 +9,8 @@
 
     const error = ref('')
 
+    const emit = defineEmits(['get-weather'])
+
     const countries = [
         { code: 'US', name: 'United States' },
         { code: 'AR', name: 'Argentina' },
@@ -26,6 +28,8 @@
         }
 
         error.value = ''
+
+        emit('get-weather')
     }
 
 </script>
