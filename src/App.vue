@@ -3,8 +3,9 @@
   import Weather from './components/Weather.vue'
   import useWeather from './composables/useWeather';
   import Spinner from './components/Spinner.vue'
+  import Alert from './components/Alert.vue'
 
-  const { getWeather, weather, displayWeather, loading } = useWeather()
+  const { getWeather, weather, displayWeather, loading, error } = useWeather()
 
   //console.log(import.meta.env)
 
@@ -17,6 +18,7 @@
       @get-weather="getWeather"
       />
       <Spinner v-if="loading"/>
+      <Alert v-if="error">{{ error }}</Alert>
       <Weather
         v-if="displayWeather"
         :weather="weather"

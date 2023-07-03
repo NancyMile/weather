@@ -5,6 +5,7 @@ export default function useWeather() {
 
     const weather = ref({})
     const loading = ref(false)
+    const error = ref('')
 
     const getWeather = async({ city, country}) => {
         //console.log('get weather', city ,country)
@@ -13,6 +14,7 @@ export default function useWeather() {
         const key = import.meta.env.VITE_API_KEY
         loading.value = true
         weather.value = {}
+        error.value = ''
 
         //get long  and lat
         try {
@@ -29,8 +31,8 @@ export default function useWeather() {
             //console.log(dataWeather)
             weather.value = dataWeather
 
-        } catch (error) {
-            console.log(error)
+        } catch {
+            error.value = "Not Found"
         }
         finally {
             loading.value = false
@@ -50,6 +52,7 @@ export default function useWeather() {
         weather,
         displayWeather,
         formatTemperature,
-        loading
+        loading,
+        error
     }
 }
