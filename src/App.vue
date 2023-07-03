@@ -4,6 +4,8 @@
 
   const { getWeather } = useWeather()
 
+  //console.log(import.meta.env)
+
 </script>
 
 <template>
